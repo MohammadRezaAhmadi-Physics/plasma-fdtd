@@ -1,3 +1,5 @@
+<img width="4532" height="1534" alt="2D_contour_Ez_Theta_0 0" src="https://github.com/user-attachments/assets/33723589-daa8-40e8-b515-5d5b434a29e5" />
+<img width="4532" height="1534" alt="2D_contour_Ez_Theta_0 0" src="https://github.com/user-attachments/assets/48faf7c0-6cac-4845-9aee-a4e986dd75e3" />
 # Plasma-FDTD: Electromagnetic Wave Propagation in a Dispersive Plasma Slab
 
 ## Overview
