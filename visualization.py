@@ -83,7 +83,7 @@ def plot_contour(histories, REGIMES, SLAB_BOUNDS, THETA_DEG):
         plt.colorbar(cs, ax=ax, shrink=0.8)
 
     fig.suptitle("Electric Field Contour (Ez)", fontsize=14)
-    fig.savefig(f"contour_Ez_Theta_{THETA_DEG}.png", dpi=300, bbox_inches="tight")
+    fig.savefig(f"2D_contour_Ez_Theta_{THETA_DEG}.png", dpi=300, bbox_inches="tight")
     plt.show()
 
 
@@ -223,13 +223,16 @@ def plot_clean_snapshot(histories, REGIMES, SLAB_BOUNDS, THETA_DEG, field_name="
         ax.set_ylim(-max_val*1.1, max_val*1.1)
         ax.set_xlim(-220, 100)
         ax.set_title(f"{label} (t ~ {int(pct*100)}%)")
-        ax.set_xlabel(r"$s$ (spatial projection)")
+        if THETA_DEG == 0:
+            ax.set_xlabel(r"$x$ (cells)")
+        else:
+            ax.set_xlabel(r"$s$ (spatial projection)")
         ax.set_ylabel(field_name)
         ax.legend(fontsize=8, loc="upper right")
         ax.grid(alpha=0.3)
 
     fig.suptitle(f"Steady-State Field Distribution ({field_name})", fontsize=16)
-    fig.savefig(f"profile_{field_name}_{int(pct*100)}pct_Theta_{THETA_DEG}.png", dpi=300, bbox_inches="tight")
+    fig.savefig(f"1D_profile_{field_name}_{int(pct*100)}pct_Theta_{THETA_DEG}.png", dpi=300, bbox_inches="tight")
     plt.show()
 
 
@@ -318,4 +321,48 @@ def plot_RTA_barchart(R, T, A, omega_val, theta_val, regime_name="super_plasma")
     ax.grid(axis='y', linestyle='-', alpha=0.3)
     
     plt.tight_layout()
+    safe_filename = f"R_T_A_omega_{omega_val:.3f}.png"
+    plt.savefig( safe_filename, dpi=300, bbox_inches='tight')
+
+
     plt.show()
+def save_snapshots_at_timesteps(histories, REGIMES, SLAB_BOUNDS, target_steps, snap_every=50):
+    """
+    ذخیره کردن تصویر کانتور میدان در تایم‌استپ‌های دلخواه.
+    target_steps: لیستی از شماره گام‌های مورد نظر (مثلاً [300, 600, 1500])
+    snap_every: فاصله ذخیره‌سازی فریم‌ها در شبیه‌سازی اصلی (که به صورت پیش‌فرض 50 است)
+    """
+    for step in target_steps:
+        # پیدا کردن شماره ایندکس فریم متناظر با این تایم‌استپ
+        frame_idx = step // snap_every
+        
+        label_0 = REGIMES[0][0]
+        if frame_idx >= len(histories[label_0]["Ez"]):
+            print(f"Warning: Timestep {step} is beyond the saved frames. Max saved frame idx is {len(histories[label_0]['Ez'])-1}.")
+            continue
+
+        fig, axes = plt.subplots(1, 3, figsize=(15, 4.5), constrained_layout=True)
+        
+        vmax = max(np.abs(histories[reg_label]["Ez"][frame_idx]).max() 
+                   for reg_label, _ in REGIMES)
+        
+        for ax, (label, _) in zip(axes, REGIMES):
+            Ez_frame = histories[label]["Ez"][frame_idx]
+            
+            im = ax.imshow(Ez_frame.T, cmap="RdBu", vmin=-vmax, vmax=vmax, origin="lower")
+            
+            # اصلاح: استخراج مرزهای X و استفاده از axvline برای رسم خطوط عمودی
+            x_min_idx, x_max_idx = SLAB_BOUNDS[:2]  
+            ax.axvline(x_min_idx, color="black", linestyle="--", alpha=0.8)
+            ax.axvline(x_max_idx, color="black", linestyle="--", alpha=0.8)
+            
+            ax.set_title(f"{label}\nTimestep: {step}", fontsize=12)
+            ax.set_xlabel("X (Grid Cells)")
+            ax.set_ylabel("Y (Grid Cells)")
+        
+        fig.colorbar(im, ax=axes, orientation="vertical", shrink=0.8, label=r"$E_z$ Amplitude")
+        
+        filename = f"snapshot_timestep_{step}.png"
+        plt.savefig(filename, dpi=300, bbox_inches='tight')
+        plt.close(fig)
+        print(f"Saved snapshot for timestep {step} as {filename}")

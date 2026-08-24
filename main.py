@@ -6,6 +6,15 @@ import matplotlib.animation as animation
 from fdtd_solver import FDTD_Solver
 from visualization import *
 
+plt.rcParams.update({
+    'font.size': 12,
+    'axes.titlesize': 14,
+    'axes.labelsize': 12,
+    'xtick.labelsize': 10,
+    'ytick.labelsize': 10,
+    'legend.fontsize': 10
+})
+
 # ---------------- Parameters ----------------
 OMEGA_P = 0.2
 NU_E = 0.01
@@ -176,5 +185,16 @@ ani = animation.FuncAnimation(fig, animate, frames=nframes, interval=45, blit=Fa
 plot_contour(histories, REGIMES, SLAB_BOUNDS, THETA_DEG)
 plot_clean_snapshot(histories, REGIMES, SLAB_BOUNDS, THETA_DEG, field_name="Ez")
 plot_clean_snapshot(histories, REGIMES, SLAB_BOUNDS, THETA_DEG, field_name="Hy")
+
+    # === اضافه شده برای ذخیره تصاویر در تایم‌استپ‌های دلخواه ===
+    # گام‌های زمانی مورد نظر برای ذخیره عکس (مثلاً 400، 700 و 900)
+target_timesteps = [300, 600, 1500]  # قبل، حین و بعد از برخورد
+save_snapshots_at_timesteps(
+    histories,
+    REGIMES,
+    SLAB_BOUNDS,
+    target_timesteps,
+    snap_every=SNAP_EVERY
+)
 
 plt.show()
