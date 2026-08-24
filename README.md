@@ -35,4 +35,25 @@ python main.py
 This will run the FDTD solver for three different frequency regimes (below, near, and above the plasma frequency). It will automatically generate and save the steady-state field plots, contours, and R/T/A bar charts in your working directory.
 
 
-با انجام این کار، اطلاعات پیش‌نیازها و دستورات دقیق اجرای شبیه‌سازی به مخزن شما اضافه می‌شود. پس از ذخیره این بخش، در مرحله بعدی ساختار فایل‌ها (Project Structure) و نتایج را قرار خواهیم داد.
+## Project Structure
+* `fdtd_solver.py`: The core simulation engine containing the `FDTD_Solver` class. It handles the Yee grid updates, CPML boundaries, TFSF source, and the Drude model semi-implicit integration.
+* `main.py`: The entry point of the simulation. It defines the grid, material properties, and simulation parameters, running the solver across three distinct frequency regimes.
+* `visualization.py`: A collection of utility functions for generating contour plots, steady-state field profiles, and computing/plotting the final R/T/A power fractions.
+
+## Simulation Results
+The simulation investigates wave propagation at three different frequency regimes relative to the plasma frequency ($\omega_p$):
+1. **Below $\omega_p$:** The plasma acts as a highly reflective medium (evanescent wave inside the slab).
+2. **Near $\omega_p$:** Transition regime with significant absorption and partial transmission.
+3. **Above $\omega_p$:** The plasma becomes largely transparent to the incident wave.
+
+### 1. Steady-State Electric Field Contours
+<!-- Drag and drop your contour map image below this line -->
+
+
+### 2. Field Profiles Across the Slab
+<!-- Drag and drop your Ez and Hy line graph images below this line -->
+
+
+### 3. Power Analysis (Reflection, Transmission, Absorption)
+The solver computes the R, T, and A fractions using single-frequency DFT. The conservation of energy ($R + T + A = 1$) is consistently maintained.
+<!-- Drag and drop your R/T/A bar chart images below this line -->
