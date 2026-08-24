@@ -23,7 +23,7 @@ The code is written in Python 3. Standard scientific libraries are required:
 You can install the dependencies using the provided `requirements.txt` file:
 ```bash
 pip install -r requirements.txt
-
+```
 ## How to Run
 1. **Clone the repository:**
 bash
@@ -49,10 +49,9 @@ The simulation investigates wave propagation at three different frequency regime
 
 ### 1. Steady-State Electric Field Contours
 <img width="4532" height="1534" alt="2D_contour_Ez_Theta_0 0" src="https://github.com/user-attachments/assets/33723589-daa8-40e8-b515-5d5b434a29e5" />
-<img width="4524" height="1227" alt="snapshot_timestep_1500" src="https://github.com/user-attachments/assets/4814a9ad-522d-4501-8ad0-2d8aa1585848" />
-<img width="4524" height="1227" alt="snapshot_timestep_600" src="https://github.com/user-attachments/assets/6dcebd18-2bd1-4bb7-8683-6ba34c10913e" />
 <img width="4524" height="1220" alt="snapshot_timestep_300" src="https://github.com/user-attachments/assets/b7add745-2d25-4b62-8091-4f4e90475455" />
-
+<img width="4524" height="1227" alt="snapshot_timestep_600" src="https://github.com/user-attachments/assets/6dcebd18-2bd1-4bb7-8683-6ba34c10913e" />
+<img width="4524" height="1227" alt="snapshot_timestep_1500" src="https://github.com/user-attachments/assets/4814a9ad-522d-4501-8ad0-2d8aa1585848" />
 
 ### 2. Field Profiles Across the Slab
 <img width="5434" height="1534" alt="1D_profile_Hy_90pct_Theta_0 0" src="https://github.com/user-attachments/assets/2a83a5d2-534c-4656-bb5f-faf26c778c1c" />
@@ -61,7 +60,9 @@ The simulation investigates wave propagation at three different frequency regime
 
 ### 3. Power Analysis (Reflection, Transmission, Absorption)
 The solver computes the R, T, and A fractions using single-frequency DFT. The conservation of energy ($R + T + A = 1$) is consistently maintained.
-<img width="1746" height="1424" alt="R_T_A_omega_0 400" src="https://github.com/user-attachments/assets/cb7684ac-91ef-46f8-8402-72bdd564c08a" />
-<img width="1746" height="1424" alt="R_T_A_omega_0 200" src="https://github.com/user-attachments/assets/c9774d01-e0dc-4c7a-b6ed-02f0ab41581c" />
 <img width="1746" height="1424" alt="R_T_A_omega_0 110" src="https://github.com/user-attachments/assets/5b6a61d9-0400-47a5-8007-2b46afe89ac5" />
-```
+<img width="1746" height="1424" alt="R_T_A_omega_0 200" src="https://github.com/user-attachments/assets/c9774d01-e0dc-4c7a-b6ed-02f0ab41581c" />
+<img width="1746" height="1424" alt="R_T_A_omega_0 400" src="https://github.com/user-attachments/assets/cb7684ac-91ef-46f8-8402-72bdd564c08a" />
+
+
+
