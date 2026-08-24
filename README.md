@@ -26,13 +26,14 @@ pip install -r requirements.txt
 ```
 ## How to Run
 1. **Clone the repository:**
-bash
+```bash
 git clone https://github.com/MohammadRezaAhmadi-Physics/plasma-fdtd.git
 cd plasma-fdtd
-
+```
 2. **Run the main simulation:**
-bash
+```bash
 python main.py
+```
 This will run the FDTD solver for three different frequency regimes (below, near, and above the plasma frequency). It will automatically generate and save the steady-state field plots, contours, and R/T/A bar charts in your working directory.
 
 
