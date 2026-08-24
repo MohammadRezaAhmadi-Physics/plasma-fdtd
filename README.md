@@ -65,4 +65,15 @@ The solver computes the R, T, and A fractions using single-frequency DFT. The co
 <img width="1746" height="1424" alt="R_T_A_omega_0 400" src="https://github.com/user-attachments/assets/cb7684ac-91ef-46f8-8402-72bdd564c08a" />
 
 
+## 🚀 Future Work
+We plan to expand the capabilities of this FDTD solver in future updates. Planned features include:
+* **Oblique Incidence Analysis:** Upgrading the wave source and TFSF boundaries to study the interaction of EM waves with the plasma slab at various oblique incident angles.
+* **Magnetized Plasma:** Extending the Drude model to an anisotropic tensor to simulate wave propagation in magnetized plasma (e.g., observing Faraday rotation).
+* **3D FDTD Implementation:** Expanding the spatial grid from 2D to 3D for complete volumetric scattering analysis.
+* **Performance Optimization:** Implementing GPU acceleration using `CuPy` or `Numba` for faster computation of high-resolution grids.
+
+## 👥 Contributors
+* **MohammadReza Ahmadi** - *Lead Developer / Physics Formulation* - [GitHub](https://github.com/MohammadRezaAhmadi-Physics)
+* **[نام همکار اول به انگلیسی]** - *[نقش او، مثلاً Co-Developer یا Data Analysis]* - [لینک گیت‌هاب یا لینکدین او]
+* **[نام همکار دوم به انگلیسی]** - *[نقش او، مثلاً Code Review یا Physics Consultant]* - [لینک گیت‌هاب یا لینکدین او]
 
