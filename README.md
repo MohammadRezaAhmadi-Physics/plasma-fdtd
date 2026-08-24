@@ -64,4 +64,4 @@ The solver computes the R, T, and A fractions using single-frequency DFT. The co
 <img width="1746" height="1424" alt="R_T_A_omega_0 400" src="https://github.com/user-attachments/assets/cb7684ac-91ef-46f8-8402-72bdd564c08a" />
 <img width="1746" height="1424" alt="R_T_A_omega_0 200" src="https://github.com/user-attachments/assets/c9774d01-e0dc-4c7a-b6ed-02f0ab41581c" />
 <img width="1746" height="1424" alt="R_T_A_omega_0 110" src="https://github.com/user-attachments/assets/5b6a61d9-0400-47a5-8007-2b46afe89ac5" />
-
+```
