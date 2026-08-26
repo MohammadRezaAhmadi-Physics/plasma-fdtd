@@ -73,8 +73,16 @@ We plan to expand the capabilities of this FDTD solver in future updates. Planne
 * **3D FDTD Implementation:** Expanding the spatial grid from 2D to 3D for complete volumetric scattering analysis.
 * **Performance Optimization:** Implementing GPU acceleration using `CuPy` or `Numba` for faster computation of high-resolution grids.
 
+
+## 📄 Scientific Report & Documentation
+
+For a detailed theoretical background, mathematical formulation (Maxwell's equations and the Drude model), and a comprehensive analysis of the FDTD simulation results, please refer to the official project documentation:
+
+* [**View Project Report (PDF)**](./P_FDTD.pdf)
+
+
 ## 👥 Contributors
 * **MohammadReza Ahmadi** - *Lead Developer / Physics Formulation* - [GitHub](https://github.com/MohammadRezaAhmadi-Physics)
-* **[نام همکار اول به انگلیسی]** - *[نقش او، مثلاً Co-Developer یا Data Analysis]* - [لینک گیت‌هاب یا لینکدین او]
-* **[نام همکار دوم به انگلیسی]** - *[نقش او، مثلاً Code Review یا Physics Consultant]* - [لینک گیت‌هاب یا لینکدین او]
+* **[Rojina Eshraghi]** - *[Project Collaborator]* - [https://github.com/rozhinaeshraghi-creator]
+* **[Mohammad Mahdi Gholami]** - *[Project Collaborator]* - [لینک گیت‌هاب یا لینکدین او]
 
